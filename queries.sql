@@ -21,12 +21,13 @@ select pizzas.nome as 'nome das pizzas do pedido 3' from pizzas inner join itens
 -- 1. Um novo cliente com os dados a seguir quer as seguintes pizzas:
 insert into Clientes (nome, logradouro, numero, complemento, bairro, referencia) values
 ("Gaspar Oliveira","Rua Alcides Postali",21,null,"São Dima","Ao lado da igreja");
+select * from clientes;
 
 insert into telefones (cliente_id, telefone) values
-(select cliente_id from cliente where cliente.nome="Gaspar Oliveira", "19 99898-1141");
+(106, "19 99898-1141");
 
 insert into Pedidos (cliente_id, data, hora, valor) values
-(select cliente_id from cliente, where cliente.nome="Gaspar Oliveira", 03-11-2026, 14:57, 40.00)
+(106, CURDATE(), CURTIME(), 40.00);
 
 --2. Acrescente a pizza a seguir no cardápio:
 insert into Pizzas(nome, descricao, valor) values
@@ -37,9 +38,9 @@ insert into pedidos(cliente_id, data, hora, valor) values
 (106, CURDATE(), CURTIME(), 83.80);
 
 insert into itens_pedido(pedido_id, pizza_id, quantidade, valor) values
-(27, select pizza_id from pizzas where nome like "A moda do chef", 2, 41.90);
+(27, 42, 2, 41.90);
 
 --4. Em tempo o cliente "Gaspar Oliveira" ligou e pediu para que seu pedido seja alterado para 3 pizzas "A moda do chef" e acrescentando uma pizza "Margherita" ao pedido.
-update itens_pedido set quantidade = 3 where quantidade = 2,
+update itens_pedido set quantidade = 3 where pedido_id = 27;
 insert into itens_pedido(pedido_id, pizza_id, quantidade, valor) values
-(27, select pizza_id from pizzas where nome like "Margherita", 1, 41.90);
+(27, 22, 1, 41.90);
