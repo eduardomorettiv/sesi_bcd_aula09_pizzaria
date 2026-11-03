@@ -42,4 +42,4 @@ select * from itens_pedido;
 update itens_pedido set quantidade = 3 where pedido_id = 27;
 insert into itens_pedido(pedido_id, pizza_id, quantidade, valor) values
 (27, 22, 1, 41.90);
-select * from itens_pedido
+select * from itens_pedido;
